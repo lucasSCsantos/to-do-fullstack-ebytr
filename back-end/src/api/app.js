@@ -7,6 +7,7 @@ const PORT = 3000;
 
 app.use(bodyParser.json());
 
+app.get('/todos', ToDos.getAll);
 app.post('/todos', ToDos.create);
 app.put('/todos/:id', ToDos.update);
 

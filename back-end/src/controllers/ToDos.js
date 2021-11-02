@@ -1,5 +1,10 @@
 const ToDos = require('../services/ToDos');
 
+const getAll = async (req, res) => {
+  const todos = await ToDos.getAll();
+  return res.status(200).json(todos);
+};
+
 const create = async (req, res) => {
   const {
     title,
@@ -31,6 +36,7 @@ const update = async (req, res) => {
 };
 
 module.exports = {
+  getAll,
   create,
   update,
 };
