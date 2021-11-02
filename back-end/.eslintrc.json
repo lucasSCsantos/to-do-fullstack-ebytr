@@ -9,10 +9,10 @@
         "ecmaVersion": 13
     },
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+        // "indent": [
+        //     "error",
+        //     "tab"
+        // ],
         "linebreak-style": [
             "error",
             "unix"
@@ -24,6 +24,12 @@
         "semi": [
             "error",
             "always"
+        ],
+        "complexity": [
+            "error", { "max": 10 }
+        ],
+        "max-params": [
+            "error", 5
         ]
     }
 }
