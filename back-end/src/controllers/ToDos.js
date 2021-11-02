@@ -1,5 +1,10 @@
 const ToDos = require('../services/ToDos');
 
+const getAll = async (req, res) => {
+  const todos = await ToDos.getAll();
+  return res.status(200).json(todos);
+};
+
 const create = async (req, res) => {
   const {
     title,
@@ -30,7 +35,15 @@ const update = async (req, res) => {
   res.status(code).json(todo);
 };
 
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  await ToDos.deleteById(id);
+  res.status(204).end();
+};
+
 module.exports = {
+  getAll,
   create,
   update,
+  deleteById,
 };

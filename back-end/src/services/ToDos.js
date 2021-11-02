@@ -8,6 +8,11 @@ const currentDate = () => {
   return `${date} ${time}`;
 };
 
+const getAll = async () => {
+  const todos = await ToDos.getAll();
+  return todos;
+};
+
 const create = async (title, description, author, status) => {
   const method = 'post';
   const isValid = validateEntries(title, description, author, status, method);
@@ -40,7 +45,13 @@ const update = async (id, title, description, status) => {
   return { code: 200, todo };
 };
 
+const deleteById = async (id) => {
+  await ToDos.deleteById(id);
+};
+
 module.exports = {
+  getAll,
   create,
   update,
+  deleteById,
 };
