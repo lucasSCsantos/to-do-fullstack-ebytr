@@ -9,7 +9,8 @@ const currentDate = () => {
 };
 
 const create = async (title, description, author, status) => {
-  const isValid = validateEntries(title, description, author, status);
+  const method = 'post';
+  const isValid = validateEntries(title, description, author, status, method);
 
   if (isValid.message) return isValid;
 
@@ -25,7 +26,8 @@ const create = async (title, description, author, status) => {
 };
 
 const update = async (id, title, description, status) => {
-  const isValid = validateEntries(title, description, null, status);
+  const method = 'put';
+  const isValid = validateEntries(title, description, null, status, method);
 
   if (isValid.message) return isValid;
 

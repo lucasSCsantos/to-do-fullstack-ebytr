@@ -27,6 +27,9 @@
         ],
         "complexity": [
             "error", { "max": 10 }
+        ],
+        "max-params": [
+            "error", 5
         ]
     }
 }

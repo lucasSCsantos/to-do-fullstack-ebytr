@@ -15,6 +15,16 @@ const create = async (req, res) => {
   res.status(code).json(todo);
 };
 
+const update = async (req, res) => {
+  const {
+    title,
+    description,
+    status,
+  } = req.body;
+
+  const { code, message, todo } = await ToDos.update(title, description, status);
+};
+
 module.exports = {
   create,
 };
