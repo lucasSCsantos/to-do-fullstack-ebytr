@@ -24,6 +24,9 @@
         "semi": [
             "error",
             "always"
+        ],
+        "complexity": [
+            "error", { "max": 10 }
         ]
     }
 }

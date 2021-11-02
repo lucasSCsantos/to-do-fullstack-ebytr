@@ -8,9 +8,11 @@ const create = async (req, res) => {
     status,
   } = req.body;
 
-  const todo = await ToDos.create(title, description, author, status);
+  const { code, message, todo } = await ToDos.create(title, description, author, status);
 
-  res.status(200).json(todo);
+  if (!todo) return res.status(code).json({ message });
+
+  res.status(code).json(todo);
 };
 
 module.exports = {
