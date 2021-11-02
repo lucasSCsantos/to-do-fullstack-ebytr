@@ -24,6 +24,21 @@ const create = async (title, description, author, status) => {
   return { code: 201, todo };
 };
 
+const update = async (id, title, description, status) => {
+  const isValid = validateEntries(title, description, null, status);
+
+  if (isValid.message) return isValid;
+
+  const todo = await ToDos.update(id, {
+    title,
+    description,
+    status,
+  });
+
+  return { code: 200, todo };
+};
+
 module.exports = {
   create,
+  update,
 };

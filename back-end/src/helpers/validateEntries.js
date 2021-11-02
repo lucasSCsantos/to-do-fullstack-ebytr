@@ -1,6 +1,8 @@
 const validateLength = (title, description) => {
   if (title.length > 20) return { code: 400, message: 'Title length exceeded.' };
-  if (description && description.length > 90) return { code: 400, message: 'Description length exceeded.' };
+  if (description && description.length > 90) {
+    return { code: 400, message: 'Description length exceeded.' };
+  }
   return null;
 };
 
@@ -18,8 +20,17 @@ const validateContent = (title, author, status) => {
   return null;
 };
 
+const validateContentOutAuthor = (title, status) => {
+  if (!title || !status) {
+    return { code: 400, message: 'Invalid entries, try again.' };
+  }
+  return null;
+};
+
 module.exports = (title, description, author, status) => {
-  const byContent = validateContent(title, author, status);
+  const byContent = author 
+  ? validateContent(title, author, status) 
+  : validateContentOutAuthor(title, status);
   const byLength = validateLength(title, description);
   const byStatus = validateStatus(status);
   if (byContent) return byContent;
