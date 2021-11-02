@@ -33,14 +33,15 @@ const create = async (title, description, author, status) => {
 const update = async (id, title, description, status) => {
   const method = 'put';
   const isValid = validateEntries(title, description, null, status, method);
+  const updateObject = {};
 
   if (isValid.message) return isValid;
 
-  const todo = await ToDos.update(id, {
-    title,
-    description,
-    status,
-  });
+  if (title) updateObject.title = title;
+  if (status) updateObject.status = status;
+  if (description) updateObject.description = description;
+
+  const todo = await ToDos.update(id, updateObject);
 
   return { code: 200, todo };
 };
