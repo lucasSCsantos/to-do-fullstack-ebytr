@@ -35,6 +35,14 @@ const update = async (req, res) => {
   res.status(code).json(todo);
 };
 
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+
+  await ToDos.deleteById(id);
+
+  res.status(204).end();
+};
+
 module.exports = {
   getAll,
   create,

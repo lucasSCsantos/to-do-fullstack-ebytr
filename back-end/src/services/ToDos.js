@@ -45,8 +45,13 @@ const update = async (id, title, description, status) => {
   return { code: 200, todo };
 };
 
+const deleteById = async (id) => {
+  await ToDos.deleteById(id);
+};
+
 module.exports = {
   getAll,
   create,
   update,
+  deleteById,
 };

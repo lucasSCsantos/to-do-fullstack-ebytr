@@ -27,8 +27,15 @@ const update = async (id, todoObj) => {
     return { _id: id, ...todoObj };
 };
 
+const deleteById = async (id) => {
+  await connection()
+    .then((db) => db.collection('todos').deleteOne({ _id: new ObjectId(id) }));
+  return true;
+};
+
 module.exports = {
   getAll,
   create,
   update,
+  deleteById,
 };
