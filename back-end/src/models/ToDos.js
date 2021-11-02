@@ -12,14 +12,16 @@ const update = async (id, todoObj) => {
     return false;
   }
 
-  const todo = await connection()
+  await connection()
     .then((db) => db.collection('todos').updateOne({
-      _id: new ObjectId(id),
+      _id: new ObjectId(id), 
     }, {
       $set: todoObj,
-    }))
-}
+    }));
+    return { _id: id, ...todoObj };
+};
 
 module.exports = {
   create,
+  update,
 };
