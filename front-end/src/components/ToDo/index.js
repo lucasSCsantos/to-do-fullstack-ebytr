@@ -6,9 +6,9 @@ export default function ToDo({ todo }) {
 	const { title, description, author } = todo;
 	return (
 		<Container>
-			<h2>{ title }</h2>
-			<p>{ description }</p>
-			<small>{ author }</small>
+			<p className="todoTitle">{ title.toUpperCase() }</p>
+			{/* <p>{ description }</p>
+			<small>{ author }</small> */}
 		</Container>
 	)
 }
