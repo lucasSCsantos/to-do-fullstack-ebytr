@@ -1,10 +1,10 @@
 import React from 'react';
-import ListsArea from './components/ListsArea';
+import ListsArea from './components/ListArea';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>ToDo List EBYTR</h1>
       <ListsArea />
     </div>
   );
