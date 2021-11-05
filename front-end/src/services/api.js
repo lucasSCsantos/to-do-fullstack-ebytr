@@ -7,4 +7,16 @@ const getAll = async () => {
 		.then(r => r.data.todos);
 }
 
-export { getAll };
+const create = async (todo) => {
+	axios.post(URL, todo)
+}
+
+const deleteById = async (id) => {
+	axios.delete(`${URL}/${id}`);
+}
+
+const update = async (id, todo) => {
+	axios.put(`${URL}/${id}`, todo)
+}
+
+export { getAll, create, deleteById, update };
